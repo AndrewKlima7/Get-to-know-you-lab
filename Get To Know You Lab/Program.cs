@@ -56,74 +56,87 @@ namespace Get_To_Know_You_Lab
            List<string> foods = new List<string>() { "Sushi", "Cilantro", "Sushi", "Chicken Curry", "Movie Theatre Popcorn", "Italian Cuisine", "Tacos", "Broccoli", "Asain cuisine", "Nalesniki", "MEAT", "Pizza" };
 
            Console.WriteLine($"That student is {students[inputStudent - 1]}");
-           Console.WriteLine("Would you like to learn about their hometown or favorite food? ");
-           string learn = Console.ReadLine();
+            bool repeat = true;
+            while (repeat == true)
+            {
+                Console.WriteLine("Would you like to learn about their hometown or favorite food? ");
+                string learn = Console.ReadLine();
+                
 
-           if (learn.ToLower() == "hometown" || learn.ToLower().Contains("home"))
-           {
-             bool another = true;
-             Console.WriteLine($"{students[inputStudent - 1]}'s hometown is {hometowns[inputStudent - 1]}");
-
-             while (another == true)
-             {
-               Console.WriteLine("Would you like to learn more? ");
-               string more = Console.ReadLine();
-
-               if (more.ToLower() == "yes" || more.ToLower().Contains("y"))
-               {
-                 Console.WriteLine($"{students[inputStudent - 1]}'s favorite food is {foods[inputStudent - 1]}");
-                        another = false;
-                 continue;                                     
-               }
-               else if (more.ToLower() == "no" || more.ToLower().Contains("n"))
-               {
-                 Console.WriteLine("okay then");
-                 Console.WriteLine();
-                 another = false;
-                 continue;                                      
-               }
-               else
-               {
-                 Console.WriteLine("Not valid");                                  
-               }                               
-             }                    
-           }
-           else if (learn.ToLower() == "favoritefood" || learn.ToLower().Contains("food"))
-           {
-              bool another = true;
-              Console.WriteLine($"{students[inputStudent - 1]}'s favorite food is {foods[inputStudent - 1]}");
-
-              while (another == true)
-              {
-                 Console.WriteLine("Would you like to learn more? ");
-                 string more = Console.ReadLine();
-
-                 if (more.ToLower() == "yes" || more.ToLower().Contains("y"))
-                 {
+                if (learn.ToLower() == "hometown" || learn.ToLower().Contains("home"))
+                {
+                    bool another = true;
                     Console.WriteLine($"{students[inputStudent - 1]}'s hometown is {hometowns[inputStudent - 1]}");
-                        another = false;
-                    continue;                                      
-                 }
-                 else if (more.ToLower() == "no" || more.ToLower().Contains("n"))
-                 {
-                    Console.WriteLine("okay then");
-                    Console.WriteLine();
-                        another = false;
-                    continue;                                
-                 }
-                 else
-                 {
-                    Console.WriteLine("Not valid");
-                    another = true;
-                 }
-              }
-           }
+
+                    while (another == true)
+                    {
+                        Console.WriteLine("Would you like to learn more? ");
+                        string more = Console.ReadLine();
+
+                        if (more.ToLower() == "yes" || more.ToLower().Contains("y"))
+                        {
+                            Console.WriteLine($"{students[inputStudent - 1]}'s favorite food is {foods[inputStudent - 1]}");
+                            another = false;
+                            repeat = false;
+                            continue;
+                        }
+                        else if (more.ToLower() == "no" || more.ToLower().Contains("n"))
+                        {
+                            Console.WriteLine("okay then");
+                            Console.WriteLine();
+                            another = false;
+                            repeat = false;
+                            continue;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Not valid");
+                        }
+                    }
+                }
+                else if (learn.ToLower() == "favoritefood" || learn.ToLower().Contains("food"))
+                {
+                    bool another = true;
+                    Console.WriteLine($"{students[inputStudent - 1]}'s favorite food is {foods[inputStudent - 1]}");
+
+                    while (another == true)
+                    {
+                        Console.WriteLine("Would you like to learn more? ");
+                        string more = Console.ReadLine();
+
+                        if (more.ToLower() == "yes" || more.ToLower().Contains("y"))
+                        {
+                            Console.WriteLine($"{students[inputStudent - 1]}'s hometown is {hometowns[inputStudent - 1]}");
+                            another = false;
+                            repeat = false;
+                            continue;
+                        }
+                        else if (more.ToLower() == "no" || more.ToLower().Contains("n"))
+                        {
+                            Console.WriteLine("okay then");
+                            Console.WriteLine();
+                            another = false;
+                            repeat = false;
+                            continue;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Not valid");
+                            another = true;
+                        }
+                    }
+                }
+                else
+                {
+                    repeat = true;
+                }
+            }
             return false;    
         } 
        
         public static bool GoAgain()
         {
-            Console.Write("Would you like to learn about another student again? ");
+            Console.Write("Would you like to learn about another student? ");
             string input = Console.ReadLine();
 
             if (input.ToUpper() == "Y" || input.ToUpper() == "YES")
