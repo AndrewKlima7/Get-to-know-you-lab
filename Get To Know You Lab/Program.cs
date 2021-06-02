@@ -16,7 +16,7 @@ namespace Get_To_Know_You_Lab
                     List<string> students = new List<string>() { "Andrew", "Mark", "James", "Tommy", "Maggie", "Jerome", "Trent", "Troy", "Kevin", "Joshua", "Sean", "Kate" };
                     PrintWholeList(students);                    
 
-                    int inputStudent = GetuserInput("Please a pick a student, any number between 1 and 11 please: ");
+                    int inputStudent = GetuserInput("Please a pick a student, any number between 1 and 12 please: ");
                     if (inputStudent > 12 || inputStudent <= 0)
                     {
                         Console.WriteLine("Must be  number between 1-12.");
@@ -25,7 +25,7 @@ namespace Get_To_Know_You_Lab
                     else
                     {
                         wrongInput = false;
-                        bool output = GetOutput(inputStudent);
+                        GetOutput(inputStudent);
                         continue;
                     }
                 }
@@ -35,7 +35,7 @@ namespace Get_To_Know_You_Lab
 
         public static int GetuserInput(string inputType)
         {
-            int input = 0;
+            int input;
             Console.WriteLine(inputType);
             input = int.Parse(Console.ReadLine());
             return input;
@@ -140,6 +140,19 @@ namespace Get_To_Know_You_Lab
             {
                 Console.WriteLine("Must input a valid response.");
                 return GoAgain();
+            }
+        }
+
+        //this is for validation i didnt use it but will be useful in the future
+        public static bool IsValidIndex(int collectionLength, int index)
+        {
+            if (index >= 0 && index < collectionLength)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
