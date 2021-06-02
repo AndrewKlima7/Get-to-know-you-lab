@@ -13,7 +13,7 @@ namespace Get_To_Know_You_Lab
                 bool wrongInput = true;
                 while (wrongInput == true)
                 {
-                    List<string> students = new List<string>() { "Andrew", "Mark", "James", "Tommy", "Maggie", "Jerome", "Trent", "Troy", "Kevin", "Joshua", "Sean" };
+                    List<string> students = new List<string>() { "Andrew", "Mark", "James", "Tommy", "Maggie", "Jerome", "Trent", "Troy", "Kevin", "Joshua", "Sean", "Kate" };
                     List<string> hometowns = new List<string>() { "Grayslake", "Grand Rapids", "Toledo", "Raleigh NC", "Montrose, MI", "Milwaukee, WI", "Rochester, MI", "Indian River, Mi", "Detroit", "Northville, MI", "Eaton Rapids MI", "Zeeland, MI" };
                     List<string> foods = new List<string>() { "Sushi", "Cilantro", "Sushi", "Chicken Curry", "Movie Theatre Popcorn", "Italian Cuisine", "Tacos", "Broccoli", "Asain cuisine", "Nalesniki", "MEAT", "Pizza" };
                     PrintWholeList(students);                    
@@ -23,9 +23,9 @@ namespace Get_To_Know_You_Lab
                     int inputStudent = int.Parse(input);
 
 
-                    if (inputStudent > 11 || inputStudent < 0)
+                    if (inputStudent > 12 || inputStudent < 0)
                     {
-                        Console.WriteLine("Must be  number between 1-11.");
+                        Console.WriteLine("Must be  number between 1-12.");
                         wrongInput = true;
                     }
                     /* #1 */
@@ -834,6 +834,81 @@ namespace Get_To_Know_You_Lab
                                     if (more.ToLower() == "yes" || more.ToLower().Contains("y"))
                                     {
                                         Console.WriteLine($"{students[10]}'s hoemtown is {hometowns[10]}");
+                                        another = false;
+                                        wrongInput = false;
+                                        repeat = false;
+                                    }
+                                    else if (more.ToLower() == "no" || more.ToLower().Contains("n"))
+                                    {
+                                        Console.WriteLine("okay then");
+                                        Console.WriteLine();
+                                        another = false;
+                                        wrongInput = false;
+                                        repeat = false;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Not valid");
+                                        another = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else if (inputStudent == 12 || input == students[11])
+                    {
+                        Console.WriteLine($"That student is {students[11]}");
+                        bool repeat = true;
+                        while (repeat == true)
+                        {
+                            Console.WriteLine("Would you like to learn about their hometown or favorite food? ");
+                            string learn = Console.ReadLine();
+
+                            if (learn.ToLower() == "hometown" || learn.ToLower().Contains("home"))
+                            {
+                                bool another = true;
+                                Console.WriteLine($"{students[11]}'s hometown is {hometowns[11]}");
+
+                                while (another == true)
+                                {
+                                    Console.WriteLine("Would you like to learn more? ");
+                                    string more = Console.ReadLine();
+
+                                    if (more.ToLower() == "yes" || more.ToLower().Contains("y"))
+                                    {
+                                        Console.WriteLine($"{students[11]}'s favorite food is {foods[11]}");
+                                        another = false;
+                                        wrongInput = false;
+                                        repeat = false;
+                                    }
+                                    else if (more.ToLower() == "no" || more.ToLower().Contains("n"))
+                                    {
+                                        Console.WriteLine("okay then");
+                                        Console.WriteLine();
+                                        another = false;
+                                        wrongInput = false;
+                                        repeat = false;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Not valid");
+                                        another = true;
+                                    }
+                                }
+                            }
+                            else if (learn.ToLower() == "favoritefood" || learn.ToLower().Contains("food"))
+                            {
+                                bool another = true;
+                                Console.WriteLine($"{students[11]}'s favorite food is {foods[11]}");
+
+                                while (another == true)
+                                {
+                                    Console.WriteLine("Would you like to learn more? ");
+                                    string more = Console.ReadLine();
+
+                                    if (more.ToLower() == "yes" || more.ToLower().Contains("y"))
+                                    {
+                                        Console.WriteLine($"{students[11]}'s hoemtown is {hometowns[11]}");
                                         another = false;
                                         wrongInput = false;
                                         repeat = false;
