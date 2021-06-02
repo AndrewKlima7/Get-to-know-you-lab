@@ -14,8 +14,6 @@ namespace Get_To_Know_You_Lab
                 while (wrongInput == true)
                 {
                     List<string> students = new List<string>() { "Andrew", "Mark", "James", "Tommy", "Maggie", "Jerome", "Trent", "Troy", "Kevin", "Joshua", "Sean", "Kate" };
-                    List<string> hometowns = new List<string>() { "Grayslake", "Grand Rapids", "Toledo", "Raleigh NC", "Montrose, MI", "Milwaukee, WI", "Rochester, MI", "Indian River, Mi", "Detroit", "Northville, MI", "Eaton Rapids MI", "Zeeland, MI" };
-                    List<string> foods = new List<string>() { "Sushi", "Cilantro", "Sushi", "Chicken Curry", "Movie Theatre Popcorn", "Italian Cuisine", "Tacos", "Broccoli", "Asain cuisine", "Nalesniki", "MEAT", "Pizza" };
                     PrintWholeList(students);                    
 
                     int inputStudent = GetuserInput("Please a pick a student, any number between 1 and 11 please: ");
@@ -40,7 +38,6 @@ namespace Get_To_Know_You_Lab
             int input = 0;
             Console.WriteLine(inputType);
             input = int.Parse(Console.ReadLine());
-
             return input;
         }
 
@@ -53,8 +50,7 @@ namespace Get_To_Know_You_Lab
         }
 
         public static bool GetOutput(int inputStudent)
-        {
-            
+        {   
            List<string> students = new List<string>() { "Andrew", "Mark", "James", "Tommy", "Maggie", "Jerome", "Trent", "Troy", "Kevin", "Joshua", "Sean", "Kate" };
            List<string> hometowns = new List<string>() { "Grayslake", "Grand Rapids", "Toledo", "Raleigh NC", "Montrose, MI", "Milwaukee, WI", "Rochester, MI", "Indian River, Mi", "Detroit", "Northville, MI", "Eaton Rapids MI", "Zeeland, MI" };
            List<string> foods = new List<string>() { "Sushi", "Cilantro", "Sushi", "Chicken Curry", "Movie Theatre Popcorn", "Italian Cuisine", "Tacos", "Broccoli", "Asain cuisine", "Nalesniki", "MEAT", "Pizza" };
