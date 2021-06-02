@@ -1,0 +1,13 @@
+C:\Users\Andre\source\repos\Notes\Get To Know You Lab\Get To Know You Lab\bin\Debug\netcoreapp3.1\Get To Know You Lab.exe
+C:\Users\Andre\source\repos\Notes\Get To Know You Lab\Get To Know You Lab\bin\Debug\netcoreapp3.1\Get To Know You Lab.deps.json
+C:\Users\Andre\source\repos\Notes\Get To Know You Lab\Get To Know You Lab\bin\Debug\netcoreapp3.1\Get To Know You Lab.runtimeconfig.json
+C:\Users\Andre\source\repos\Notes\Get To Know You Lab\Get To Know You Lab\bin\Debug\netcoreapp3.1\Get To Know You Lab.runtimeconfig.dev.json
+C:\Users\Andre\source\repos\Notes\Get To Know You Lab\Get To Know You Lab\bin\Debug\netcoreapp3.1\Get To Know You Lab.dll
+C:\Users\Andre\source\repos\Notes\Get To Know You Lab\Get To Know You Lab\bin\Debug\netcoreapp3.1\Get To Know You Lab.pdb
+C:\Users\Andre\source\repos\Notes\Get To Know You Lab\Get To Know You Lab\obj\Debug\netcoreapp3.1\Get To Know You Lab.csprojAssemblyReference.cache
+C:\Users\Andre\source\repos\Notes\Get To Know You Lab\Get To Know You Lab\obj\Debug\netcoreapp3.1\Get To Know You Lab.AssemblyInfoInputs.cache
+C:\Users\Andre\source\repos\Notes\Get To Know You Lab\Get To Know You Lab\obj\Debug\netcoreapp3.1\Get To Know You Lab.AssemblyInfo.cs
+C:\Users\Andre\source\repos\Notes\Get To Know You Lab\Get To Know You Lab\obj\Debug\netcoreapp3.1\Get To Know You Lab.csproj.CoreCompileInputs.cache
+C:\Users\Andre\source\repos\Notes\Get To Know You Lab\Get To Know You Lab\obj\Debug\netcoreapp3.1\Get To Know You Lab.dll
+C:\Users\Andre\source\repos\Notes\Get To Know You Lab\Get To Know You Lab\obj\Debug\netcoreapp3.1\Get To Know You Lab.pdb
+C:\Users\Andre\source\repos\Notes\Get To Know You Lab\Get To Know You Lab\obj\Debug\netcoreapp3.1\Get To Know You Lab.genruntimeconfig.cache
