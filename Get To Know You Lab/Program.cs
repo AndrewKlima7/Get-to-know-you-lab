@@ -28,10 +28,9 @@ namespace Get_To_Know_You_Lab
                             student.Add(stu);
                         }
                     }
-                    int index = -1;
+                    int index = 0;
                     if (index < student.Count)
                     {
-                        index++;
 
                         foreach (students s in student)
 
