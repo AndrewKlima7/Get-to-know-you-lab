@@ -22,17 +22,23 @@ namespace Get_To_Know_You_Lab
                     List<students> student = new List<students>();
                     foreach(string line in lines)
                     {
-                        students stu = ConvertToStudent(line);
+                        students stu = ConvertToStudent(line); //!!!!!!!
                         if(stu != null)
                         {
                             student.Add(stu);
                         }
                     }
-                    foreach(students s in student)
+                    int index = -1;
+                    if (index < student.Count)
                     {
-                        Console.WriteLine($"{s.Name}");
-                    }
+                        index++;
 
+                        foreach (students s in student)
+
+                        {
+                            Console.WriteLine($"{index++} : {s.Name}");
+                        }
+                    }
                     int inputStudent = GetuserInput($"Please a pick a student, any number between 0 and {student.Count - 1} please: ");
                     if (inputStudent > student.Count - 1 || inputStudent <= -1)
                     {
@@ -42,13 +48,12 @@ namespace Get_To_Know_You_Lab
                     else
                     {
                         wrongInput = false;
-                        students s = student[inputStudent];
-                        GetOutput(s);
-                        read.Close();
+                        students s = student[inputStudent]; //this takes the student at the usersinput
+                        GetOutput(s);                       //and creates a student for it to then be
+                        read.Close();                       //called by getoutput()
                         continue;
-                    }                   
+                    }
                 }
-                
                 Console.WriteLine("Now lets add a new student");
                 AddStudent();
                 again = GoAgain();
@@ -82,11 +87,11 @@ namespace Get_To_Know_You_Lab
 
         public static string StudentToString(students s)
         {
-            string output = $"\n{s.Name}, {s.HomeTown}, {s.FavoriteFood}";
+            string output = $"\n{s.Name}, {s.HomeTown}, {s.FavoriteFood}"; //turns student info into string on a new line
             return output;
         }
 
-        public static students ConvertToStudent(string line)
+        public static students ConvertToStudent(string line) //!!!!
         {
             string[] prop = line.Split(',');
             students s = new students();
@@ -110,14 +115,6 @@ namespace Get_To_Know_You_Lab
             Console.WriteLine(inputType);
             input = int.Parse(Console.ReadLine());
             return input;
-        }
-
-        public static void PrintWholeList(List<string> items)
-        {
-            for (int i = 0; i < items.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}: {items[i]}");
-            }
         }
 
         public static bool GetOutput(students student)
