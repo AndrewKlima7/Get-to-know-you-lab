@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Get_To_Know_You_Lab
 {
@@ -13,23 +14,93 @@ namespace Get_To_Know_You_Lab
                 bool wrongInput = true;
                 while (wrongInput == true)
                 {
-                    List<string> students = new List<string>() { "Andrew", "Mark", "James", "Tommy", "Maggie", "Jerome", "Trent", "Troy", "Kevin", "Joshua", "Sean", "Kate" };
-                    PrintWholeList(students);                    
+                    string filePath = @"whole class.txt";
+                    StreamReader read = new StreamReader(filePath);
+                    string output = read.ReadToEnd();
 
-                    int inputStudent = GetuserInput("Please a pick a student, any number between 1 and 12 please: ");
-                    if (inputStudent > 12 || inputStudent <= 0)
+                    string[] lines = output.Split('\n');
+                    List<students> student = new List<students>();
+                    foreach(string line in lines)
                     {
-                        Console.WriteLine("Must be  number between 1-12.");
+                        students stu = ConvertToStudent(line);
+                        if(stu != null)
+                        {
+                            student.Add(stu);
+                        }
+                    }
+                    foreach(students s in student)
+                    {
+                        Console.WriteLine($"{s.Name}");
+                    }
+
+                    int inputStudent = GetuserInput($"Please a pick a student, any number between 0 and {student.Count - 1} please: ");
+                    if (inputStudent > student.Count - 1 || inputStudent <= -1)
+                    {
+                        Console.WriteLine($"Must be  number between 0-{student.Count - 1}");
                         wrongInput = true;
                     }
                     else
                     {
                         wrongInput = false;
-                        GetOutput(inputStudent);
+                        students s = student[inputStudent];
+                        GetOutput(s);
+                        read.Close();
                         continue;
-                    }
+                    }                   
                 }
+                
+                Console.WriteLine("Now lets add a new student");
+                AddStudent();
                 again = GoAgain();
+            }
+        }
+
+        public static void AddStudent()
+        {
+            string filePath = @"whole class.txt";
+            students s = new students();
+            Console.WriteLine("Please input a name for the new student");
+            s.Name = Console.ReadLine();
+
+            Console.WriteLine($"Please input {s.Name}'s Hometown");
+            s.HomeTown = Console.ReadLine();
+
+            Console.WriteLine($"Please input {s.Name}'s favorite food");
+            s.FavoriteFood = Console.ReadLine();
+
+            string line = StudentToString(s);
+            Console.WriteLine(line);
+
+            StreamReader reader = new StreamReader(filePath);
+            string original = reader.ReadToEnd();
+            reader.Close();
+
+            StreamWriter writer = new StreamWriter(filePath);
+            writer.Write(original + line);
+            writer.Close();
+        }
+
+        public static string StudentToString(students s)
+        {
+            string output = $"\n{s.Name}, {s.HomeTown}, {s.FavoriteFood}";
+            return output;
+        }
+
+        public static students ConvertToStudent(string line)
+        {
+            string[] prop = line.Split(',');
+            students s = new students();
+
+            if(prop.Length == 3)
+            {
+                s.Name = prop[0];
+                s.HomeTown = prop[1];
+                s.FavoriteFood = prop[2];
+                return s;
+            }
+            else
+            {
+                return null;
             }
         }
 
@@ -49,33 +120,29 @@ namespace Get_To_Know_You_Lab
             }
         }
 
-        public static bool GetOutput(int inputStudent)
-        {   
-           List<string> students = new List<string>() { "Andrew", "Mark", "James", "Tommy", "Maggie", "Jerome", "Trent", "Troy", "Kevin", "Joshua", "Sean", "Kate" };
-           List<string> hometowns = new List<string>() { "Grayslake", "Grand Rapids", "Toledo", "Raleigh NC", "Montrose, MI", "Milwaukee, WI", "Rochester, MI", "Indian River, Mi", "Detroit", "Northville, MI", "Eaton Rapids MI", "Zeeland, MI" };
-           List<string> foods = new List<string>() { "Sushi", "Cilantro", "Sushi", "Chicken Curry", "Movie Theatre Popcorn", "Italian Cuisine", "Tacos", "Broccoli", "Asain cuisine", "Nalesniki", "MEAT", "Pizza" };
+        public static bool GetOutput(students student)
+        {
 
-           Console.WriteLine($"That student is {students[inputStudent - 1]}");
+            Console.WriteLine($"That student is {student.Name}");
             bool repeat = true;
             while (repeat == true)
             {
                 Console.WriteLine("Would you like to learn about their hometown or favorite food? ");
                 string learn = Console.ReadLine();
-                
 
                 if (learn.ToLower() == "hometown" || learn.ToLower().Contains("home"))
                 {
                     bool another = true;
-                    Console.WriteLine($"{students[inputStudent - 1]}'s hometown is {hometowns[inputStudent - 1]}");
+                    Console.WriteLine($"{student.Name}'s hometown is {student.HomeTown}");
 
                     while (another == true)
                     {
-                        Console.WriteLine("Would you like to learn more? ");
+                        Console.WriteLine("Would you like to learn more? Y/N ");
                         string more = Console.ReadLine();
 
                         if (more.ToLower() == "yes" || more.ToLower().Contains("y"))
                         {
-                            Console.WriteLine($"{students[inputStudent - 1]}'s favorite food is {foods[inputStudent - 1]}");
+                            Console.WriteLine($"{student.Name}'s favorite food is {student.FavoriteFood}");
                             another = false;
                             repeat = false;
                             continue;
@@ -97,16 +164,16 @@ namespace Get_To_Know_You_Lab
                 else if (learn.ToLower() == "favoritefood" || learn.ToLower().Contains("food"))
                 {
                     bool another = true;
-                    Console.WriteLine($"{students[inputStudent - 1]}'s favorite food is {foods[inputStudent - 1]}");
+                    Console.WriteLine($"{student.Name}'s favorite food is {student.FavoriteFood}");
 
                     while (another == true)
                     {
-                        Console.WriteLine("Would you like to learn more? ");
+                        Console.WriteLine("Would you like to learn more? Y/N");
                         string more = Console.ReadLine();
 
                         if (more.ToLower() == "yes" || more.ToLower().Contains("y"))
                         {
-                            Console.WriteLine($"{students[inputStudent - 1]}'s hometown is {hometowns[inputStudent - 1]}");
+                            Console.WriteLine($"{student.Name}'s hometown is {student.HomeTown}");
                             another = false;
                             repeat = false;
                             continue;
@@ -131,12 +198,12 @@ namespace Get_To_Know_You_Lab
                     repeat = true;
                 }
             }
-            return false;    
-        } 
-       
+            return false;
+        }
+
         public static bool GoAgain()
         {
-            Console.Write("Would you like to learn about another student? ");
+            Console.Write("Would you like to learn about another student? Y/N");
             string input = Console.ReadLine();
 
             if (input.ToUpper() == "Y" || input.ToUpper() == "YES")
